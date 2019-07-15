@@ -12,11 +12,18 @@ Ex:  hello(null) => null
 
 */
 
-function hello() {
+function hello(name) {
+	if (name === "") 
+	{
+		return "null"
+
+	}else{
+		return "hello "+name+"!"
+	}
   // WRITE YOUR CODE UNDER THIS LINE  
 
 }
-
+console.log(hello(""))
 
 /* Q2:
 Create a function called calculateTax
@@ -32,8 +39,12 @@ Ex: calculateTax(100,0.15)
 => "You got 100 JD from sales, you should pay 15 JD for tax and you will have 85 JD as net sales."
 */
 
-function calculateTax() {
-  // WRITE YOUR CODE UNDER THIS LINE 
+function calculateTax(salees ,tax) {
+	var x = salees * tax/100
+	var s = salees - x
+
+	return "You got" +salees+ "JD from sales, you should pay "+x+ "JD for tax and you will have" +s+"JD as net sales."
+   
 
 }
 
@@ -52,10 +63,32 @@ Ex: repeatChar("a",2); => "a, A"
 Ex: repeatChar("C",5); => "C, c, C, c, C"
 */
 
-function repeatChar() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function repeatChar(str , n) {
+	var c = 1;
+  var str2 =""
+  while (c<=n)
+  {
+  		if(str>="a")
+  		{
+  		if(c%2 === 0)
+  			str2 = str2 + str.toUpperCase() +", ";
+  		else
+  			str2 = str2 + str.toLowerCase() +", ";
+  		}
+  		else
+  		{
+  			if(c%2 === 0)
+  			str2 = str2 + str.toLowerCase() +", ";
+  		else
+  			str2 = str2 + str.toUpperCase() +", ";
+  		}
+
+  		c++;
+  }
+  return str2.slice(0, -2);
 
 }
+console.log(repeatChar("w" , 4));
 
 
 /* Q4:
@@ -71,10 +104,19 @@ Ex: stringToCapital("My Name Is: Alex !")
 Ex: stringToCapital("Are you a student in coding ACADEMY by ORANGE ?") 
 => "ARE YOU A STUDENT IN CODING ACADEMY BY ORANGE ?"
 */
+var stop = 1;
+function stringToCapital(strings) {
 
-function stringToCapital() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+	if ( stop++ === 1);
+   else if(strings.length===strings.length)
+  	return strings.toUpperCase();
+
+
+  return stringToCapital(strings); 
+
 
 }
+console.log(stringToCapital("rashed moh "))
+
 
 // Good luck :)
